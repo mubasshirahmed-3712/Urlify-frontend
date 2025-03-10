@@ -1,0 +1,129 @@
+/* Navbar Container */
+:root {
+  --light-beige: #F8F3D9;
+  --beige: #EBE5C2;
+  --dark-beige: #B9B28A;
+  --dark-brown: #504B38;
+}
+
+.navbarContainer {
+  position: sticky;
+  top: 20px;
+  z-index: 1000;
+  width: 69%;
+  display: flex;
+  justify-content: center;
+  padding: 0.2rem 1rem;
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  background: rgba(235, 229, 194, 0.8);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+/* Hide/Show on Scroll */
+.navbarContainer.hide {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.navbarContainer.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Navbar Content */
+.navbarContent {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo */
+.navbarLogo {
+  font-size: 2rem;
+  color: darkgray;
+  font-weight: bold;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.logoHighlight {
+  color: #504B38;
+}
+
+/* Navbar Links */
+.navbarLinks {
+  display: flex;
+  gap: 2rem;
+  text-transform: capitalize;
+  align-items: center;
+}
+
+.navLink {
+  font-size: 1rem;
+  color: #504B38;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navLink:hover {
+  color: #ff8a00;
+}
+
+/* Profile Section */
+.navProfile {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.username {
+  font-weight: 500;
+}
+
+/* Logout Button */
+.logout {
+  cursor: pointer;
+}
+
+/* Hamburger Menu (Hidden by Default) */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: #B9B28A;
+  cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .navbarLinks {
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    flex-direction: row;
+    gap: 1rem;
+    background: rgba(235, 229, 194, 0.9);
+    border-radius: 60px;
+    padding: 1rem 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.4s ease;
+  }
+
+  .navbarLinks.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}

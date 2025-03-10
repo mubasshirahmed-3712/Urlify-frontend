@@ -1,0 +1,142 @@
+/* Container */
+.registerContainer {
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(to right, #ebe5c2, #f8f3d9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Wrapper */
+.registerWrapper {
+    width: 90%;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .registerWrapper {
+        flex-direction: row;
+    }
+}
+
+/* Left Side */
+.registerLeft {
+    flex: 1;
+    text-align: justify;
+}
+
+.registerLogo {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: #504b38;
+}
+
+.logoAccent {
+    color: #b9b28a;
+}
+
+.registerDesc {
+    font-family: 'Zeyada', cursive;
+    font-size: 1.5rem;
+    color: #504b38;
+}
+
+/* Right Side */
+.registerRight {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+/* Form Box */
+.registerBox {
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(80, 75, 56, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Input Fields */
+.registerInput {
+    height: 50px;
+    border: none;
+    border-radius: 12px;
+    padding-left: 1rem;
+    font-size: 1rem;
+    background-color: #f8f3d9;
+    color: #504b38;
+}
+
+.registerInput:focus {
+    outline: none;
+    border: 2px solid #b9b28a;
+}
+
+/* Buttons */
+.registerButton, .registerLoginButton {
+    height: 50px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.registerButton {
+    background-color: #504b38;
+    color: white;
+}
+
+.registerButton:hover {
+    background-color: #b9b28a;
+}
+
+.registerLoginButton {
+    background-color: #42b72a;
+    color: white;
+}
+
+.registerLoginButton:hover {
+    background-color: #388e3c;
+}
+
+/* Forgot Password */
+.registerForgot {
+    text-align: center;
+    color: #504b38;
+    cursor: pointer;
+}
+
+/* Link Style */
+.registerLink {
+    text-decoration: none;
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .registerLogo {
+        font-size: 2.5rem;
+    }
+
+    .registerDesc {
+        font-size: 1.2rem;
+    }
+
+    .registerBox {
+        padding: 1.5rem;
+    }
+}
