@@ -23,7 +23,10 @@ export default function Home() {
       note: note.current.value,
     };
     try {
-      axios.post("/shorturls/", newUrl);
+      axios.post(
+        `${process.env.REACT_APP_API_URL}/shorturls`,
+        newUrl
+      );
       window.location.reload();
     } catch (err) {
       console.log("ERR2 :" + err);
@@ -34,7 +37,7 @@ export default function Home() {
     const fetchUrl = async () => {
       try {
         const res = await axios.get(
-          `/shorturls/get/` + user.username + `?q=${query}`
+          `${process.env.REACT_APP_API_URL}/shorturls/get/${user.username}?q=${query}`
         );
 
         setUrl(

@@ -12,7 +12,9 @@ export default function Table({ Url }) {
     try {
       console.log('clickedd');
       console.log(url);
-      const fullLink = await axios.get('/shorturls/' + url.short);
+      const fullLink = await axios.get(
+        `${process.env.REACT_APP_API_URL}/shorturls/${url.short}`
+      );
       window.location.href = fullLink.data;
     } catch (err) {
       console.log(err);

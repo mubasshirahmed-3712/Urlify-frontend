@@ -9,24 +9,31 @@ export default function Register() {
     const password = useRef();
     const passwordAgain = useRef();
     const username = useRef();
-    const history = useNavigate();
+    const navigate = useNavigate(); // ✅ Updated from "history"
 
     const handleClick = async (e) => {
         e.preventDefault();
+        
+        // Reset custom validity message
+        passwordAgain.current.setCustomValidity("");
+
+        // Check if passwords match
         if (passwordAgain.current.value !== password.current.value) {
             passwordAgain.current.setCustomValidity("Passwords don't match!");
-        } else {
-            const user = {
-                username: username.current.value,
-                email: email.current.value,
-                password: password.current.value,
-            };
-            try {
-                await axios.post("/auth/register", user);
-                history("/login");
-            } catch (err) {
-                console.log(err);
-            }
+            return;
+        }
+
+        const user = {
+            username: username.current.value,
+            email: email.current.value,
+            password: password.current.value,
+        };
+
+        try {
+            await axios.post(`${process.env.REACT_APP_API_URL}/auth/register`, user);
+            navigate("/login"); // ✅ Updated from "history"
+        } catch (err) {
+            console.error("Registration Error: ", err.response?.data || err.message);
         }
     };
 
@@ -38,7 +45,7 @@ export default function Register() {
                         &lt;<span className="logoAccent">URL</span>ify/&gt;
                     </h3>
                     <span className="registerDesc">
-                        Get your URLs shortened and saved in few seconds. Add a note to it.
+                        Get your URLs shortened and saved in a few seconds. Add a note to it.
                     </span>
                 </div>
                 <div className="registerRight">
@@ -76,11 +83,9 @@ export default function Register() {
                             Sign Up
                         </button>
                         <span className="registerForgot">Forgot Password?</span>
-                        <button className="registerLoginButton">
-                            <Link to="/login" className="registerLink">
-                                Log in to Account
-                            </Link>
-                        </button>
+                        <Link to="/login" className="registerLoginButton">
+                            Log in to Account
+                        </Link>
                     </form>
                 </div>
             </div>
