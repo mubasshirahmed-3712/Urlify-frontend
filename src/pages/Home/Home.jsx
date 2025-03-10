@@ -23,10 +23,7 @@ export default function Home() {
       note: note.current.value,
     };
     try {
-      axios.post(
-        `${process.env.REACT_APP_API_URL}/shorturls`,
-        newUrl
-      );
+      axios.post("https://urlify-backend.onrender.com/api/shorturls/", newUrl);
       window.location.reload();
     } catch (err) {
       console.log("ERR2 :" + err);
@@ -37,7 +34,7 @@ export default function Home() {
     const fetchUrl = async () => {
       try {
         const res = await axios.get(
-          `${process.env.REACT_APP_API_URL}/shorturls/get/${user.username}?q=${query}`
+          `https://urlify-backend.onrender.com/api/shorturls/get/` + user.username + `?q=${query}`
         );
 
         setUrl(
