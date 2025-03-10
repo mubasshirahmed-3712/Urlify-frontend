@@ -6,8 +6,8 @@ URLify is a full-stack URL shortening web application built using the **MERN sta
 
 ## 📸 Project Screenshots
 
-![URLify Homepage](./client/screenshots/url1.png)  
-![URLify Dashboard](./client/screenshots/url2.jpeg)
+![URLify Homepage](./screenshots/url1.png)  
+![URLify Dashboard](./screenshots/url2.jpeg)
 
 ---
 
